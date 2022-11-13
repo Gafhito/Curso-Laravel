@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 
 class ExpenseController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -38,6 +43,11 @@ class ExpenseController extends Controller
      */
     public function store(Request $request, ExpenseReport $expenseReport)
     {
+        $validData = $request->validate([
+            'description' => 'required | min:3',
+            'amount' => 'required | numeric | min:1'
+        ]);
+
         $expense = new Expense();
         $expense->description = $request->get('description');
         $expense->amount = $request->get('amount');

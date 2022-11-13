@@ -25,12 +25,12 @@
             <form action="/expense_reports/{{ $report->id }}/expenses" method="POST">
                 @csrf
                 <div class="form-group">
-                    <label for="title">Description</label>
-                    <input type="text" class="form-control" id="description" name="description" placeholder="Type a description" value="{{ old('title') }}">
+                    <label for="description">Description</label>
+                    <input type="text" class="form-control" id="description" name="description" placeholder="Type a description" value="{{ old('description') }}">
                 </div>
                 <div class="form-group">
-                    <label for="title">Amount</label>
-                    <input type="text" class="form-control" id="amount" name="amount" placeholder="Type on amount" value="{{ old('title') }}">
+                    <label for="amount">Amount</label>
+                    <input type="text" class="form-control" id="amount" name="amount" placeholder="Type on amount" value="{{ old('amount') }}">
                 </div>
                 <button class="btn btn-primary" type="submit">Submit</button>
             </form>
